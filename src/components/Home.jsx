@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import { SiLeetcode } from "react-icons/si";
 import { Link } from 'react-scroll';
 
 const Home = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
+
         {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -30,7 +31,7 @@ const Home = () => {
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl leading-relaxed">
             I am a final-year Information Technology student with a strong interest in building clean, modern web interfaces and developing practical full-stack applications that solve real-world problems.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <a
               href="/HARISHKUMAR%20-%20RESUME.pdf"
@@ -42,7 +43,7 @@ const Home = () => {
               <Download size={20} />
               <span>Download Resume</span>
             </a>
-            
+
             <Link
               to="contact"
               spy={true}
@@ -64,6 +65,9 @@ const Home = () => {
             <a href="https://www.linkedin.com/in/a-harishkumar/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200 p-2">
               <Linkedin size={24} />
             </a>
+            <a href="https://leetcode.com/u/Harish1294/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-600 dark:hover:text-yellow-500 transition-colors duration-200 p-2">
+              <SiLeetcode size={22} />
+            </a>
             <a href="mailto:a.harishkumar1294@gmail.com" className="hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200 p-2">
               <Mail size={24} />
             </a>
@@ -80,7 +84,7 @@ const Home = () => {
           <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
             {/* Background Blob/Shape */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-indigo-500 rounded-full blur-3xl opacity-20 dark:opacity-30 animate-pulse"></div>
-            
+
             {/* Image Container */}
             <div className="relative w-full h-full rounded-[2rem] overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 group">
               {/* Replace src with actual image path or generate an image */}
@@ -91,7 +95,7 @@ const Home = () => {
             </div>
           </div>
         </motion.div>
-        
+
       </div>
     </section>
   );
