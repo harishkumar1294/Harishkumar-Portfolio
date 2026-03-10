@@ -64,7 +64,7 @@ const Home = () => {
             <a href="https://www.linkedin.com/in/a-harishkumar/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200 p-2">
               <Linkedin size={24} />
             </a>
-            <a href="mailto:contact@example.com" className="hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200 p-2">
+            <a href="mailto:a.harishkumar1294@gmail.com" className="hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200 p-2">
               <Mail size={24} />
             </a>
           </div>

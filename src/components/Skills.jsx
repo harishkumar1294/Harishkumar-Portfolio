@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Coffee, FileCode2, Paintbrush, Terminal, Atom, Database, GitBranch, Github } from 'lucide-react';
 
 const skillsData = [
-  'Java',
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'React',
-  'SQL',
-  'Git',
-  'GitHub'
+  { name: 'Java', Icon: Coffee, color: 'text-orange-500' },
+  { name: 'HTML', Icon: FileCode2, color: 'text-orange-600' },
+  { name: 'CSS', Icon: Paintbrush, color: 'text-blue-500' },
+  { name: 'JavaScript', Icon: Terminal, color: 'text-yellow-500' },
+  { name: 'React', Icon: Atom, color: 'text-cyan-400' },
+  { name: 'SQL', Icon: Database, color: 'text-blue-400' },
+  { name: 'Git', Icon: GitBranch, color: 'text-orange-600' },
+  { name: 'GitHub', Icon: Github, color: 'text-slate-800 dark:text-white' }
 ];
 
 const Skills = () => {
@@ -34,17 +35,18 @@ const Skills = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {skillsData.map((skill, index) => (
+          {skillsData.map(({ name, Icon, color }, index) => (
             <motion.div
-              key={skill}
+              key={name}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               whileHover={{ scale: 1.05, y: -2 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="flex items-center justify-center p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm text-slate-800 dark:text-slate-200 font-semibold text-xl sm:text-2xl hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-md transition-all cursor-default"
+              className="flex items-center justify-center gap-4 p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm text-slate-800 dark:text-slate-200 font-semibold text-xl sm:text-2xl hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-md transition-all cursor-default group"
             >
-              {skill}
+              <Icon className={`w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-300 group-hover:scale-110 ${color}`} />
+              <span>{name}</span>
             </motion.div>
           ))}
         </div>
