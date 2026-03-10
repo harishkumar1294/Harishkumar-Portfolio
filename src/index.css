@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-primary: #3b82f6; /* A default primary color to use */
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* Custom base styles for body to override defaults and ensure dark mode works smoothly */
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-slate-950 text-slate-50;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
