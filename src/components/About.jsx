@@ -31,7 +31,7 @@ const About = () => {
               Hello! I'm <strong className="text-slate-900 dark:text-white font-semibold">Harish Kumar</strong>, currently pursuing my Bachelor's degree in Information Technology.
             </p>
             <p leading-relaxed>
-              Passionate software developer with a strong interest in Java and frontend development, continuously improving my skills in Data Structures and Algorithms (DSA) and modern web technologies. I enjoy building real-world projects to strengthen my technical knowledge and problem-solving abilities.
+              I am a Passionate software developer with a strong interest in Java and frontend development, continuously improving my skills in Data Structures and Algorithms (DSA) and modern web technologies. I enjoy building real-world projects to strengthen my technical knowledge and problem-solving abilities.
             </p>
             <p leading-relaxed>
               I am a quick learner and team player, eager to explore new technologies and create responsive, user-friendly web applications while continuously growing as a developer.
