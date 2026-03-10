@@ -25,15 +25,18 @@ const Home = () => {
             </span>
           </h1>
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-600 dark:text-slate-300 mb-6">
-            Frontend Developer
+            {/* Frontend Developer */}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl leading-relaxed">
-            I am a final-year Computer Science student passionate about crafting clean, modern interfaces and building real-world Full Stack web applications. 
+            I am a final-year Information Technology student with a strong interest in building clean, modern web interfaces and developing practical full-stack applications that solve real-world problems.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <a
-              href="#resume" // Provide actual link later
+              href="/HARISHKUMAR%20-%20RESUME.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="HARISHKUMAR - RESUME.pdf"
               className="inline-flex justify-center items-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all shadow-lg shadow-blue-600/25 dark:shadow-blue-600/10 active:scale-95"
             >
               <Download size={20} />
@@ -55,10 +58,10 @@ const Home = () => {
 
           {/* Social Links */}
           <div className="flex items-center gap-5 mt-10 text-slate-500 dark:text-slate-400">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 dark:hover:text-white transition-colors duration-200 p-2">
+            <a href="https://github.com/harishkumar1294" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 dark:hover:text-white transition-colors duration-200 p-2">
               <Github size={24} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200 p-2">
+            <a href="https://www.linkedin.com/in/a-harishkumar/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200 p-2">
               <Linkedin size={24} />
             </a>
             <a href="mailto:contact@example.com" className="hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200 p-2">
