@@ -46,7 +46,7 @@ const Navbar = () => {
                   to={link.to}
                   spy={true}
                   smooth={true}
-                  offset={-70}
+                  offset={-100}
                   duration={500}
                   activeClass="text-blue-600 dark:text-blue-400 font-semibold"
                   className="cursor-pointer text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors px-3 py-2 rounded-md text-sm font-medium"
@@ -95,7 +95,7 @@ const Navbar = () => {
                 to={link.to}
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-100}
                 duration={500}
                 activeClass="bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400"
                 className="cursor-pointer text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium transition-colors"

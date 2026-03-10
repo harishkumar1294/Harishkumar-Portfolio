@@ -47,7 +47,7 @@ const Home = () => {
               to="contact"
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={-100}
               duration={500}
               className="inline-flex justify-center items-center gap-2 px-8 py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-medium border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all cursor-pointer active:scale-95 shadow-sm"
             >
