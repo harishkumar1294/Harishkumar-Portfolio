@@ -4,22 +4,22 @@ import { Award } from 'lucide-react';
 
 const certificatesData = [
   {
-    title: 'Full Stack Web Development Certification',
-    issuer: 'Coursera / Meta',
-    date: '2023',
-    link: '#',
+    title: 'CyberHavoc CTF',
+    issuer: 'Participation',
+    date: '2024',
+    link: '/Certificates/CyberHavoc_CTF.jpg',
   },
   {
-    title: 'React - The Complete Guide',
-    issuer: 'Udemy',
-    date: '2023',
-    link: '#',
+    title: 'Fundamentals Of Database',
+    issuer: 'Certification',
+    date: '2024',
+    link: '/Certificates/Fundamentals_Of_Database_Certificate.pdf',
   },
   {
-    title: 'JavaScript Data Structures and Algorithms',
-    issuer: 'freeCodeCamp',
-    date: '2022',
-    link: '#',
+    title: 'YUGAM 2024',
+    issuer: 'Participation',
+    date: '2024',
+    link: '/Certificates/YUGAM_2024.pdf',
   },
 ];
 
@@ -36,7 +36,7 @@ const Certificates = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-            Licenses & <span className="text-blue-600 dark:text-blue-400">Certifications</span>
+            My <span className="text-blue-600 dark:text-blue-400">Certificates</span>
           </h2>
           <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded-full"></div>
         </motion.div>
@@ -63,8 +63,8 @@ const Certificates = () => {
                 </p>
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-slate-400 dark:text-slate-500 font-medium">{cert.date}</span>
-                  <a href={cert.link} className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
-                    View Credential
+                  <a href={cert.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                    View Certificate
                   </a>
                 </div>
               </div>
