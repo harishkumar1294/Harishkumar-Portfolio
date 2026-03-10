@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
+  const [status, setStatus] = useState(''); // '', 'sending', 'success', 'error'
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    emailjs
+      .sendForm(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+        form.current,
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS Public Key
+      )
+      .then(
+        () => {
+          setStatus('success');
+          form.current.reset();
+          setTimeout(() => setStatus(''), 5000); // Hide message after 5 seconds
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setStatus('error');
+          setTimeout(() => setStatus(''), 5000);
+        }
+      );
+  };
+
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +53,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -70,10 +99,9 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3 bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-100 dark:border-slate-700"
           >
-            <form 
-              action="mailto:a.harishkumar1294@gmail.com" 
-              method="GET" 
-              encType="text/plain"
+            <form
+              ref={form}
+              onSubmit={sendEmail}
               className="space-y-6"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -86,21 +114,47 @@ const Contact = () => {
                   <input type="email" id="email" name="email" className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-colors" placeholder="john@example.com" required />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Subject</label>
                 <input type="text" id="subject" name="subject" className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-colors" placeholder="Hello..." required />
               </div>
 
               <div>
-                <label htmlFor="body" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
-                <textarea id="body" name="body" rows="5" className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-colors" placeholder="Your message here..." required></textarea>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
+                <textarea id="message" name="message" rows="5" className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-colors" placeholder="Your message here..." required></textarea>
               </div>
 
-              <button type="submit" className="w-full inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium transition-all shadow-lg shadow-blue-600/25 active:scale-[0.98]">
-                <Send size={20} />
-                <span>Send Message</span>
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="w-full inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-medium transition-all shadow-lg shadow-blue-600/25 active:scale-[0.98]"
+              >
+                <Send size={20} className={status === 'sending' ? 'animate-pulse' : ''} />
+                <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
               </button>
+
+              {status === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 p-4 rounded-xl border border-green-200 dark:border-green-800"
+                >
+                  <CheckCircle size={20} />
+                  <p className="text-sm font-medium">Message sent successfully! I'll get back to you soon.</p>
+                </motion.div>
+              )}
+
+              {status === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 p-4 rounded-xl border border-red-200 dark:border-red-800"
+                >
+                  <AlertCircle size={20} />
+                  <p className="text-sm font-medium">Failed to send message. Please try again later.</p>
+                </motion.div>
+              )}
             </form>
           </motion.div>
 
