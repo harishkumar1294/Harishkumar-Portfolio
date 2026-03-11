@@ -6,7 +6,7 @@ const certificatesData = [
   {
     title: 'CyberHavoc CTF',
     issuer: 'Participation',
-    date: '2024',
+    date: '2023',
     link: '/Certificates/CyberHavoc_CTF.jpg',
   },
   {
