@@ -1,35 +1,40 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const form = useRef();
   const [status, setStatus] = useState(''); // '', 'sending', 'success', 'error'
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
     setStatus('sending');
 
-    emailjs
-      .sendForm(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
-        form.current,
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS Public Key
-      )
-      .then(
-        () => {
-          setStatus('success');
-          form.current.reset();
-          setTimeout(() => setStatus(''), 5000); // Hide message after 5 seconds
-        },
-        (error) => {
-          console.error('FAILED...', error.text);
-          setStatus('error');
-          setTimeout(() => setStatus(''), 5000);
-        }
-      );
+    const formData = new FormData(e.target);
+    formData.append("access_key", "b7b7acde-dbcf-4d96-8316-3d272f156355");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        e.target.reset();
+        setTimeout(() => setStatus(''), 5000);
+      } else {
+        console.error("Error:", data);
+        setStatus('error');
+        setTimeout(() => setStatus(''), 5000);
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      setStatus('error');
+      setTimeout(() => setStatus(''), 5000);
+    }
   };
 
   return (
