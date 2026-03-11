@@ -26,10 +26,10 @@ const Home = () => {
             </span>
           </h1>
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-600 dark:text-slate-300 mb-6">
-            {/* Frontend Developer */}
+            {'Aspiring Software Engineer'}
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl leading-relaxed">
-            I am a final-year Information Technology student with a strong interest in building clean, modern web interfaces and developing practical full-stack applications that solve real-world problems.
+            Passionate about building web applications and learning full-stack development
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
